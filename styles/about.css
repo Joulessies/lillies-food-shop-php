@@ -1,5 +1,39 @@
 /* About Page Styles */
 
+/* Banner Section */
+.about-banner {
+  background-color: #0078ff;
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.about-banner h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.about-banner .text-yellow {
+  color: #ffd600;
+}
+
+.about-banner p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.about-banner .btn {
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* Global Styles for About Page */
 .section-title {
   font-size: 3.5rem;
@@ -98,6 +132,74 @@
   justify-content: center;
   font-size: 1.5rem;
   margin: 0 auto 1rem;
+}
+
+/* Our Team Section */
+.our-team-section {
+  background-color: #f9f9f9;
+  padding: 5rem 0;
+}
+
+.team-member {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.team-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.position {
+  color: #0078ff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.bio {
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-link {
+  color: #0078ff;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: #0065dc;
+  transform: translateY(-3px);
+}
+
+/* Our Storefront Section */
+.storefront-section {
+  background-color: white;
+  padding: 5rem 0;
+}
+
+.storefront-image-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Most Ordered Section */
@@ -262,26 +364,29 @@
 
 /* Text Effects */
 .text-gradient {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .section-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
   .order-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .food-item img {
@@ -290,12 +395,14 @@
   }
   
   .order-text {
-    display: block;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
     margin-right: 0;
+    margin-bottom: 1rem;
+    text-align: center;
   }
   
   .order-btn {
-    margin-left: 0;
+    display: block;
+    margin: 0 auto;
   }
 } 

@@ -1,6 +1,7 @@
-
 :root {
   --primary-color: #0076FF;   /* Bright blue */
+  --primary-rgb: 0, 118, 255; /* RGB values for primary color */
+  --primary-dark: #0065dc;    /* Darker blue for hover states */
   --secondary-color: #FFD600; /* Yellow */
   --accent-color: #FF4C00;    /* Orange */
   --light-color: #FAF3E0;     /* Off-white */
@@ -94,6 +95,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Animations */
 .fade-in {
   animation: fadeIn 1s ease-in;
+}
+
+/* Fix spacing */
+main {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 @keyframes fadeIn {

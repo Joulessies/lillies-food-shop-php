@@ -1,0 +1,134 @@
+/* Orders Page Styles */
+.container {
+    padding-top: 60px;
+}
+
+h2.mb-4 {
+    color: #0078ff;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 10px;
+}
+
+/* Table Styling */
+.orders-table {
+    margin-bottom: 0;
+}
+
+.orders-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #444;
+    padding: 15px;
+    border-top: none;
+}
+
+.orders-table td {
+    vertical-align: middle;
+    padding: 12px 15px;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-delivered {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-processing {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-pending {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Button Styling */
+.btn-outline-primary {
+    border-color: #0078ff;
+    color: #0078ff;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: #0078ff;
+    border-color: #0078ff;
+    color: white;
+}
+
+/* Modal Styling */
+.modal-header {
+    background-color: #0078ff;
+    color: white;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border-top: 1px solid #f1f1f1;
+}
+
+/* Order Details */
+.order-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.order-items h6 {
+    color: #444;
+    font-weight: 600;
+}
+
+/* Table in Modal */
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(0, 120, 255, 0.05);
+}
+
+.table-striped > tbody > tr:hover > * {
+    background-color: rgba(0, 120, 255, 0.1);
+}
+
+/* Empty State */
+.alert-info {
+    background-color: #f8f9fa;
+    border-color: #eee;
+    color: #444;
+}
+
+.bi-bag {
+    color: #ccc;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-top: 20px;
+    }
+    
+    .orders-table th, .orders-table td {
+        padding: 10px;
+    }
+    
+    .status-badge {
+        padding: 3px 8px;
+    }
+} 
