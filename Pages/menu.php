@@ -325,26 +325,26 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/lillies-food-shop/Layout/Navigation/n
         <?php endforeach; ?>
       <?php else: ?>
         <!-- Fallback if no featured items -->
-        <div class="featured-item" data-bs-toggle="modal" data-bs-target="#productModal" 
-            data-name="Double Cheese Deluxe" data-price="199" data-category="Featured" 
-            data-image="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-            data-description="Our signature double-patty burger with two layers of melted cheese, crispy bacon, fresh lettuce, tomato, and our special sauce on a brioche bun.">
-          <div class="featured-img">
-            <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Double Cheese Deluxe">
-            <span class="featured-badge">Most Popular</span>
-          </div>
-          <div class="featured-info">
-            <h4>Double Cheese Deluxe</h4>
-            <p>Double beef patty with double cheese and all the fixings</p>
-            <div class="featured-price-action">
-              <span class="featured-price">₱199</span>
-              <button class="btn btn-sm btn-primary quick-add" data-name="Double Cheese Deluxe" data-price="199" 
-                data-image="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80">
-                <i class="bi bi-plus-circle"></i> Quick Add
-              </button>
-            </div>
+      <div class="featured-item" data-bs-toggle="modal" data-bs-target="#productModal" 
+          data-name="Double Cheese Deluxe" data-price="199" data-category="Featured" 
+          data-image="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+          data-description="Our signature double-patty burger with two layers of melted cheese, crispy bacon, fresh lettuce, tomato, and our special sauce on a brioche bun.">
+        <div class="featured-img">
+          <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Double Cheese Deluxe">
+          <span class="featured-badge">Most Popular</span>
+        </div>
+        <div class="featured-info">
+          <h4>Double Cheese Deluxe</h4>
+          <p>Double beef patty with double cheese and all the fixings</p>
+          <div class="featured-price-action">
+            <span class="featured-price">₱199</span>
+            <button class="btn btn-sm btn-primary quick-add" data-name="Double Cheese Deluxe" data-price="199" 
+              data-image="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80">
+              <i class="bi bi-plus-circle"></i> Quick Add
+            </button>
           </div>
         </div>
+      </div>
       <?php endif; ?>
     </div>
   </section>
@@ -374,27 +374,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/lillies-food-shop/Layout/Navigation/n
     <?php endforeach; ?>
   <?php else: ?>
     <!-- Fallback if no categories or items -->
-    <section class="menu-category">
-      <h3>Burgers</h3>
-      <ul>
-        <li class="menu-item" data-bs-toggle="modal" data-bs-target="#productModal" data-name="Classic Cheeseburger"
-          data-price="149" data-category="Burgers" 
-          data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-          data-description="Our signature beef patty topped with melted American cheese, fresh lettuce, tomato, and our special sauce on a toasted bun.">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="Classic Cheeseburger" />
-          <div><span>Classic Cheeseburger</span><span>₱149</span></div>
-        </li>
-        <li class="menu-item" data-bs-toggle="modal" data-bs-target="#productModal" data-name="Bacon BBQ Burger"
-          data-price="179" data-category="Burgers" 
-          data-image="https://images.unsplash.com/photo-1595974787270-81addba290b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-          data-description="Premium beef patty topped with crispy bacon, cheddar cheese, onion rings, and our tangy BBQ sauce.">
-          <img src="https://images.unsplash.com/photo-1595974787270-81addba290b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="Bacon BBQ Burger" />
-          <div><span>Bacon BBQ Burger</span><span>₱179</span></div>
-        </li>
-      </ul>
-    </section>
+  <section class="menu-category">
+    <h3>Burgers</h3>
+    <ul>
+      <li class="menu-item" data-bs-toggle="modal" data-bs-target="#productModal" data-name="Classic Cheeseburger"
+        data-price="149" data-category="Burgers" 
+        data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        data-description="Our signature beef patty topped with melted American cheese, fresh lettuce, tomato, and our special sauce on a toasted bun.">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="Classic Cheeseburger" />
+        <div><span>Classic Cheeseburger</span><span>₱149</span></div>
+      </li>
+      <li class="menu-item" data-bs-toggle="modal" data-bs-target="#productModal" data-name="Bacon BBQ Burger"
+        data-price="179" data-category="Burgers" 
+        data-image="https://images.unsplash.com/photo-1595974787270-81addba290b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        data-description="Premium beef patty topped with crispy bacon, cheddar cheese, onion rings, and our tangy BBQ sauce.">
+        <img src="https://images.unsplash.com/photo-1595974787270-81addba290b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="Bacon BBQ Burger" />
+        <div><span>Bacon BBQ Burger</span><span>₱179</span></div>
+      </li>
+    </ul>
+  </section>
   <?php endif; ?>
-
+  
   <!-- Recently Viewed Section -->
   <section class="menu-category recently-viewed-section d-none">
     <h3>Recently Viewed</h3>
