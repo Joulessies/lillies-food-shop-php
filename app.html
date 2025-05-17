@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lillies Food Shop</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .highlight {
+      color: #ff6b6b;
+    }
+
+    .accent {
+      color: #4ecdc4;
+    }
+
+    /* Navbar Styles */
+    .navbar-custom {
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-transparent {
+      background-color: transparent !important;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .nav-link {
+      color: white !important;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+
+    .cart-link,
+    .order-now-link {
+      color: white !important;
+      text-decoration: none;
+    }
+
+    .order-now-link {
+      background-color: #ff6b6b;
+      padding: 8px 20px !important;
+    }
+
+    /* Landing Hero Section */
+    .landing-hero-wrapper {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .vertical-marquee {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .left-vertical {
+      left: 0;
+    }
+
+    .right-vertical {
+      right: 0;
+    }
+
+    .vertical-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 0.8;
+      color: white;
+      margin: 0 20px;
+    }
+
+    .vertical-text .outline {
+      -webkit-text-stroke: 2px white;
+      color: transparent;
+    }
+
+    .marquee-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .marquee-track {
+      position: absolute;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .marquee-track-1 {
+      top: 10%;
+    }
+
+    .marquee-track-2 {
+      top: 30%;
+    }
+
+    .marquee-track-3 {
+      top: 50%;
+    }
+
+    .marquee-track-4 {
+      top: 70%;
+    }
+
+    .marquee-content {
+      display: flex;
+      gap: 2rem;
+      font-size: 5rem;
+      font-weight: 900;
+      white-space: nowrap;
+      color: white;
+    }
+
+    .marquee-content .outline {
+      -webkit-text-stroke: 2px white;
+      color: transparent;
+    }
+
+    .landing-hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .centered-food-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circular-frame {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 10px solid white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .food-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Landing Page Content */
+    .landing-page-content {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .text-content h1 {
+      font-size: 5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .text-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .text-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .landing-page-button {
+      background-color: #ff6b6b;
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .image-carousel {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Best Selling Section */
+    .best-selling {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .best-selling h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .burger-carousel {
+      position: relative;
+    }
+
+    .swiper {
+      padding: 20px 0;
+    }
+
+    /* Featured Section */
+    .featured-section {
+      padding: 80px 0;
+      background-color: white;
+      text-align: center;
+    }
+
+    .featured-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .featured-section-grid {
+      margin-top: 40px;
+    }
+
+    .featured-landing-page {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .featured-text {
+      text-align: left;
+    }
+
+    .featured-text h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* Customer Review Section */
+    .customer-review {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .customer-review h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .review-grid {
+      overflow: hidden;
+    }
+
+    .review-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 0 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      min-width: 300px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .reviewer-info h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .reviewer-info p {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .review-stars {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .review-text {
+      font-style: italic;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .review-date {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    /* Order Now Section */
+    .order-now-section {
+      background-color: #ff6b6b;
+      color: white;
+      padding: 40px 0;
+    }
+
+    .marquee-order-now {
+      overflow: hidden;
+    }
+
+    .order-now-text {
+      font-size: 3rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .order-now-btn {
+      background-color: white;
+      color: #ff6b6b;
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #343a40;
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-logo a {
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .lillies {
+      color: #ff6b6b;
+    }
+
+    .food {
+      color: #4ecdc4;
+    }
+
+    .shop {
+      color: white;
+    }
+
+    .footer-nav ul,
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-nav li,
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-nav a,
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-nav a:hover,
+    .footer-links a:hover {
+      color: #ff6b6b;
+    }
+
+    .footer-contact p {
+      margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #495057;
+    }
+
+    .footer-copyright p {
+      text-align: right;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .vertical-text {
+        font-size: 3rem;
+      }
+
+      .marquee-content {
+        font-size: 3rem;
+      }
+
+      .circular-frame {
+        width: 300px;
+        height: 300px;
+      }
+
+      .text-content h1 {
+        font-size: 3.5rem;
+      }
+
+      .text-content h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .vertical-text {
+        font-size: 2rem;
+      }
+
+      .marquee-content {
+        font-size: 2rem;
+      }
+
+      .circular-frame {
+        width: 250px;
+        height: 250px;
+      }
+
+      .text-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .text-content h2 {
+        font-size: 2rem;
+      }
+
+      .order-now-text {
+        font-size: 2rem;
+      }
+
+      .footer-nav,
+      .footer-contact {
+        margin-top: 30px;
+      }
+
+      .footer-copyright p {
+        text-align: left;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .vertical-text {
+        font-size: 1.5rem;
+      }
+
+      .marquee-content {
+        font-size: 1.5rem;
+      }
+
+      .circular-frame {
+        width: 200px;
+        height: 200px;
+      }
+
+      .text-content h1 {
+        font-size: 2rem;
+      }
+
+      .text-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .order-now-text {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar-custom navbar-transparent navbar navbar-expand-lg navbar-dark">
+    <div class="d-flex justify-content-between align-items-center container">
+      <button aria-controls="navbar-nav" type="button" aria-label="Toggle navigation"
+        class="order-1 navbar-toggler collapsed">
+        <i class="bi bi-list"></i>
+      </button>
+      <a class="mx-auto order-0 flex-grow-0 position-absolute start-50 translate-middle-x navbar-brand" href="/">
+        <img src="logo.svg" alt="Logo" class="react-logo">
+      </a>
+      <div class="invisible order-2"><i class="bi bi-list"></i></div>
+      <div class="order-3 w-100 navbar-collapse collapse" id="navbar-nav">
+        <div class="me-auto navbar-nav">
+          <a class="nav-link" href="/about">About Us</a>
+          <div class="nav-item dropdown nav-item">
+            <a id="menu-dropdown" class="dropdown-toggle nav-link" href="/menu">Menu</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/menu">View All</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/menu#burgers">Burgers</a>
+              <a class="dropdown-item" href="/menu#sides">Sides</a>
+              <a class="dropdown-item" href="/menu#beverages">Beverages</a>
+            </div>
+          </div>
+          <a class="nav-link" href="/rateus">Rate Us</a>
+        </div>
+        <div class="navbar-nav">
+          <button type="button"
+            class="cart-link me-3 border border-2 rounded p-2 position-relative text-white border-white btn btn-link">
+            <i class="bi bi-cart3 fs-5"></i>
+          </button>
+          <a class="order-now-link rounded me-3 nav-link" href="/order">Order Now</a>
+          <a class="me-2 p-2 border border-2 rounded text-white border-white nav-link" href="/login">
+            <i class="bi bi-box-arrow-in-right fs-5"></i>
+          </a>
+          <a class="p-2 border border-2 rounded text-white border-white nav-link" href="/signup">
+            <i class="bi bi-person-plus fs-5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Landing Hero Section -->
+    <div class="landing-page">
+      <div class="landing-hero-wrapper">
+        <div class="vertical-marquee right-vertical" style="right: 0px;">
+          <div class="rfm-marquee-container"
+            style="--pause-on-hover: paused; --pause-on-click: paused; --width: 100vh; --transform: rotate(-90deg);">
+            <div class="rfm-marquee"
+              style="--play: running; --direction: reverse; --duration: 41.333333333333336s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+              <div class="rfm-initial-child-container">
+                <div class="rfm-child" style="--transform: rotate(90deg);">
+                  <div class="vertical-text">
+                    <span class="">LOCAL</span>
+                    <span class="outline">FRESH</span>
+                    <span class="">LOCAL</span>
+                    <span class="outline">FRESH</span>
+                    <span class="">LOCAL</span>
+                    <span class="outline">FRESH</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rfm-marquee"
+              style="--play: running; --direction: reverse; --duration: 41.333333333333336s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+              <div class="rfm-child" style="--transform: rotate(90deg);">
+                <div class="vertical-text">
+                  <span class="">LOCAL</span>
+                  <span class="outline">FRESH</span>
+                  <span class="">LOCAL</span>
+                  <span class="outline">FRESH</span>
+                  <span class="">LOCAL</span>
+                  <span class="outline">FRESH</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-overlay">
+          <div class="marquee-track marquee-track-4">
+            <div class="rfm-marquee-container"
+              style="--pause-on-hover: paused; --pause-on-click: paused; --width: 100%; --transform: none;">
+              <div class="rfm-marquee"
+                style="--play: running; --direction: reverse; --duration: 81.95376838235295s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-initial-child-container">
+                  <div class="rfm-child" style="--transform: none;">
+                    <div class="marquee-content">
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rfm-marquee"
+                style="--play: running; --direction: reverse; --duration: 81.95376838235295s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-child" style="--transform: none;">
+                  <div class="marquee-content">
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee-track marquee-track-3">
+            <div class="rfm-marquee-container"
+              style="--pause-on-hover: paused; --pause-on-click: paused; --width: 100%; --transform: none;">
+              <div class="rfm-marquee"
+                style="--play: running; --direction: normal; --duration: 99.515283203125s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-initial-child-container">
+                  <div class="rfm-child" style="--transform: none;">
+                    <div class="marquee-content">
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rfm-marquee"
+                style="--play: running; --direction: normal; --duration: 99.515283203125s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-child" style="--transform: none;">
+                  <div class="marquee-content">
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee-track marquee-track-1">
+            <div class="rfm-marquee-container"
+              style="--pause-on-hover: paused; --pause-on-click: paused; --width: 100%; --transform: none;">
+              <div class="rfm-marquee"
+                style="--play: running; --direction: normal; --duration: 69.660703125s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-initial-child-container">
+                  <div class="rfm-child" style="--transform: none;">
+                    <div class="marquee-content">
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rfm-marquee"
+                style="--play: running; --direction: normal; --duration: 69.660703125s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-child" style="--transform: none;">
+                  <div class="marquee-content">
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee-track marquee-track-2">
+            <div class="rfm-marquee-container"
+              style="--pause-on-hover: running; --pause-on-click: running; --width: 100%; --transform: none;">
+              <div class="rfm-marquee"
+                style="--play: running; --direction: reverse; --duration: 69.6606982421875s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-initial-child-container">
+                  <div class="rfm-child" style="--transform: none;">
+                    <div class="marquee-content">
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                      <span class="">TASTY LOCAL FRESH</span>
+                      <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rfm-marquee"
+                style="--play: running; --direction: reverse; --duration: 69.6606982421875s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+                <div class="rfm-child" style="--transform: none;">
+                  <div class="marquee-content">
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                    <span class="">TASTY LOCAL FRESH</span>
+                    <span class="outline">NEIGHBORHOOD FOOD JOINT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vertical-marquee left-vertical">
+          <div class="rfm-marquee-container"
+            style="--pause-on-hover: running; --pause-on-click: running; --width: 100vh; --transform: rotate(90deg);">
+            <div class="rfm-marquee"
+              style="--play: running; --direction: reverse; --duration: 41.333333333333336s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+              <div class="rfm-initial-child-container">
+                <div class="rfm-child" style="--transform: rotate(-90deg);">
+                  <div class="vertical-text">
+                    <span class="">LOCAL</span>
+                    <span class="outline">FRESH</span>
+                    <span class="">LOCAL</span>
+                    <span class="outline">FRESH</span>
+                    <span class="">LOCAL</span>
+                    <span class="outline">FRESH</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rfm-marquee"
+              style="--play: running; --direction: reverse; --duration: 41.333333333333336s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+              <div class="rfm-child" style="--transform: rotate(-90deg);">
+                <div class="vertical-text">
+                  <span class="">LOCAL</span>
+                  <span class="outline">FRESH</span>
+                  <span class="">LOCAL</span>
+                  <span class="outline">FRESH</span>
+                  <span class="">LOCAL</span>
+                  <span class="outline">FRESH</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="landing-hero container-fluid">
+          <div class="centered-food-content">
+            <div class="circular-frame">
+              <img src="burgerfries.jpg" alt="Delicious food" class="food-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Landing Page Content -->
+    <div class="landing-page-content">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-content">
+            <h1>LOCAL<span class="highlight">.</span></h1>
+            <h2>FRESH<span class="accent">,</span> DAMN<span class="accent">,</span> TASTY</h2>
+            <p>Lillies Food Shop is a project for our Platform Technologies course at the Technological Institute of the
+              Philippines. As students, we are exploring the most efficient ways to develop the website with minimal
+              effort while maintaining quality, functionality, and a user-friendly experience.</p>
+            <button type="button" class="landing-page-button btn btn-primary">Learn More</button>
+          </div>
+          <div class="col-md-6 image-content">
+            <div class="image-grid">
+              <img src="food1.jpg" class="image-carousel">
+              <img src="food2.jpg" class="image-carousel">
+              <img src="food3.jpg" class="image-carousel">
+              <img src="food4.jpg" class="image-carousel">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Selling Section -->
+    <div class="best-selling">
+      <div class="container">
+        <h1>Best Selling</h1>
+        <div class="burger-carousel container py-5">
+          <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-active" style="width: 1116px; margin-right: 30px;"
+                data-swiper-slide-index="0">
+                <div class="text-center">
+                  <img src="classic.avif" alt="Classic" class="img-fluid mb-4"
+                    style="max-height: 150px; object-fit: contain;">
+                  <h4 class="fw-bold">Classic</h4>
+                  <p><strong>INGREDIENTS:</strong> Potato bun, smashed Swiss beef patty, cheddar cheese, diced onions,
+                    ketchup, mustard</p>
+                  <p class="fw-bold">SINGLE <span class="text-danger">CHF 10</span> / DOUBLE <span
+                      class="text-danger">CHF 20</span> / TRIPLE <span class="text-danger">CHF 25</span></p>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-next" style="width: 1116px; margin-right: 30px;"
+                data-swiper-slide-index="1">
+                <div class="text-center">
+                  <img src="elegant.avif" alt="Fancy" class="img-fluid mb-4"
+                    style="max-height: 150px; object-fit: contain;">
+                  <h4 class="fw-bold">Fancy</h4>
+                  <p><strong>INGREDIENTS:</strong> Potato bun, smashed Swiss beef patty, salad leaves, tomatoes, onion
+                    slice, cheddar cheese, secret sauce.</p>
+                  <p class="fw-bold">SINGLE <span class="text-danger">CHF 14</span> / DOUBLE <span
+                      class="text-danger">CHF 24</span> / TRIPLE <span class="text-danger">CHF 29</span></p>
+                </div>
+              </div>
+              <div class="swiper-slide" data-swiper-slide-index="2" style="width: 1116px; margin-right: 30px;">
+                <div class="text-center">
+                  <img src="elegant.avif" alt="Elegant" class="img-fluid mb-4"
+                    style="max-height: 150px; object-fit: contain;">
+                  <h4 class="fw-bold">Elegant</h4>
+                  <p><strong>INGREDIENTS:</strong> Potato bun, smashed Swiss Beef patty, salad leaves, tomatoes, onion
+                    slice, cheddar cheese, secret sauce, and packed with cheese!</p>
+                  <p class="fw-bold">SINGLE <span class="text-danger">CHF 16</span> / DOUBLE <span
+                      class="text-danger">CHF 18</span> / TRIPLE <span class="text-danger">CHF 39</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+              <span class="swiper-pagination-bullet"></span>
+              <span class="swiper-pagination-bullet"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Section -->
+    <div class="featured-section">
+      <div class="container">
+        <h1>Featured</h1>
+        <div class="featured-section-grid">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <img src="people-eating2.jpg" class="featured-landing-page">
+                <div class="featured-text">
+                  <h3>Dining Experience</h3>
+                  <p>Enjoy our delicious meals in a cozy atmosphere</p>
+                </div>
+              </div>
+              <div class="col">
+                <img src="people-eating4.jpg" class="featured-landing-page">
+                <div class="featured-text">
+                  <h3>Share with Friends</h3>
+                  <p>Enjoy our delicious meals in a cozy atmosphere</p>
+                </div>
+              </div>
+              <div class="col">
+                <img src="people-eating4.jpg" class="featured-landing-page">
+                <div class="featured-text">
+                  <h3>Share with loved ones</h3>
+                  <p>Enjoy your delicious meals with your loved ones</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <img src="people-eating.jpg" class="featured-landing-page">
+                <div class="featured-text">
+                  <h3>Burger Discount</h3>
+                  <p>Delicious burger at a discount</p>
+                </div>
+              </div>
+              <div class="col">
+                <img src="burger-fries-discount.jpg" class="featured-landing-page">
+                <div class="featured-text">
+                  <h3>French Fries Discount</h3>
+                  <p>Crispy fries at a special price</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Review Section -->
+    <div class="customer-review">
+      <div class="container">
+        <h1>What Our Customers Say</h1>
+        <div class="review-grid">
+          <div class="rfm-marquee-container"
+            style="--pause-on-hover: paused; --pause-on-click: paused; --width: 100%; --transform: none;">
+            <div class="rfm-marquee"
+              style="--play: running; --direction: normal; --duration: 54s; --delay: 0s; --iteration-count: infinite; --min-width: 100%;">
+              <div class="rfm-initial-child-container">
+                <div class="rfm-child" style="--transform: none;">
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="reviewer-info">
+                        <h3>John Doe</h3>
+                        <p>Regular Customer</p>
+                      </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The burgers here are absolutely amazing! The quality of ingredients and the
+                      taste is unmatched. My go-to place for a delicious meal."</p>
+                    <p class="review-date">March 15, 2024</p>
+                  </div>
+                </div>
+                <div class="rfm-child" style="--transform: none;">
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="reviewer-info">
+                        <h3>Sarah Smith</h3>
+                        <p>Food Enthusiast</p>
+                      </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Great atmosphere and even better food! The staff is friendly and the service
+                      is quick. Love their special sauce!"</p>
+                    <p class="review-date">March 18, 2024</p>
+                  </div>
+                </div>
+</html>

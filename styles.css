@@ -1,0 +1,108 @@
+
+:root {
+  --primary-color: #0076FF;   /* Bright blue */
+  --secondary-color: #FFD600; /* Yellow */
+  --accent-color: #FF4C00;    /* Orange */
+  --light-color: #FAF3E0;     /* Off-white */
+  --dark-color: #222;
+}
+
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  overflow-x: hidden;
+}
+
+body {
+  padding-top: 76px; /* Adjust based on your navbar height */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #0065dc;
+  border-color: #0065dc;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--dark-color);
+}
+
+.btn-secondary:hover {
+  background-color: #e6c200;
+  border-color: #e6c200;
+  color: var(--dark-color);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.btn-accent:hover {
+  background-color: #e64400;
+  border-color: #e64400;
+  color: white;
+}
+
+/* Container max-width adjustments */
+.container {
+  max-width: 1200px;
+}
+
+/* Utility Classes */
+.section-padding {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
